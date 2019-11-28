@@ -15,6 +15,7 @@ It is intended that you use this utility via PowerShell commands during your dep
 [RebuildIndexes](#rebuildindexes) <br>
 [RebuildLinkDatabases](#rebuildlinkdatabases) <br>
 [DeployMarketingDefinitions](#deploymarketingdefinitions)<br>
+[PopulateManagedSchema](#PopulateManagedSchema)<br>
 
 When a request to execute a command is made the query string parameters are turned into a Dictionary<string,string> and passed into the commands Execute method.
 This allows you pass well known parameters from your PowerShell script to the command.
@@ -71,6 +72,21 @@ TBD
 |command|deploymarketingdefinitions|
 
 e.g. /sitecoredeploy.aspx?command=deploymarketingdefinitions
+
+#### PopulateManagedSchema 
+
+Populate the SOLR managed schema, simialr to manual process documented here: https://doc.sitecore.com/developers/90/platform-administration-and-architecture/en/solr-managed-schemas.html
+
+Implementation was derived from 'Sitecore.ContentSearch.Client.sitecore.admin' namespace within 'Sitecore.ContentSearch.Client.dll' via .dotpeek
+
+Supply a comma or pipe separated list of SOLR cores to populate, examples below:
+
+|Parameter|Value|
+|:-------|:-------|
+|command|PopulateManagedSchema&Indexes=sitecore_core_index,sitecore_master_index,sitecore_web_index,...|
+
+e.g. /sitecoredeploy.aspx?PopulateManagedSchema&Indexes=sitecore_core_index,sitecore_master_index,sitecore_web_index
+
 
 ## Using SitecoreDeploy commands
 
